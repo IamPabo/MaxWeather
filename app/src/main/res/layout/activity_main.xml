@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="nowCity"
+            type="com.max.weather.mvvm.weather.bean.CityBean" />
+
+        <variable
+            name="nowWeather"
+            type="com.max.weather.mvvm.weather.bean.NowBean" />
+
+        <variable
+            name="mainVM"
+            type="com.max.weather.mvvm.weather.MainViewModel" />
+
+        <variable
+            name="WeatherIcon"
+            type="String"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_school"
+        tools:context="com.max.weather.mvvm.weather.MainActivity">
+
+        <TextView
+            android:id="@+id/info_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:drawableStart="@drawable/icon_location"
+            android:textStyle="bold"
+            android:text="@{nowCity.c3}"
+            tools:text="北京"
+            android:textColor="@android:color/background_dark"
+            android:textSize="@dimen/city_text_size"/>
+
+        <ImageView
+            android:id="@+id/icon_weather"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="80dp"
+            app:icon="@{WeatherIcon}"
+            tools:src="@drawable/icon_sleet" />
+
+        <TextView
+            android:id="@+id/info_weather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/icon_weather"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:text="@{nowWeather.weather}"
+            android:textColor="@android:color/background_dark"
+            android:textSize="@dimen/weather_text_size"
+            tools:text="阴天啊"/>
+
+    </RelativeLayout>
+</layout>
