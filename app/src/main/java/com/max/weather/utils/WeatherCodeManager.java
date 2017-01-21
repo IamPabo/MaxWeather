@@ -1,4 +1,4 @@
-package com.max.weather.untils;
+package com.max.weather.utils;
 
 /**
  * @auther MaxLiu
