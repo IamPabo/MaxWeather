@@ -27,7 +27,7 @@ public class MainViewModel {
 
     private AppCompatActivity activity;
     private ActivityMainBinding mBinding;
-    private MainConstract.IModel IModel;
+    private MainContract.IModel IModel;
 
     MainViewModel(AppCompatActivity activity, ActivityMainBinding binding) {
         mBinding = binding;

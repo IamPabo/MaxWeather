@@ -12,12 +12,12 @@ import rx.schedulers.Schedulers;
  * @time 2017/1/20
  */
 
-class MainModel implements MainConstract.IModel {
+class MainModel implements MainContract.IModel {
 
     static final String LOCATION_BAIDU = "5";
 
     @Override
-    public Observable<WeatherBean> getWeatherFromLocation(String type, String longitude, String latitude) {
+    public synchronized Observable<WeatherBean> getWeatherFromLocation(String type, String longitude, String latitude) {
         if (type == null) type = LOCATION_BAIDU;
         return ApiDefault.getApiService().getLocationWeather(
                 type,
@@ -28,7 +28,7 @@ class MainModel implements MainConstract.IModel {
     }
 
     @Override
-    public Observable<WeatherBean> getWeatherFromCity(String type, String longitude, String latitude) {
+    public synchronized Observable<WeatherBean> getWeatherFromCity(String type, String longitude, String latitude) {
         return null;
     }
 

@@ -74,6 +74,14 @@
             android:paddingEnd="0dp"
             android:layout_centerHorizontal="true">
 
+            <ImageView
+                android:id="@+id/icon_am_pm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@{nowWeather}"
+                tools:src="@drawable/icon_post_meridiem"
+                tools:ignore="contentDescription"/>
+
             <TextView
                 android:id="@+id/info_temperature"
                 android:layout_width="wrap_content"

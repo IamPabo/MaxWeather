@@ -1,9 +1,13 @@
 package com.max.weather.mvvm.weather.bean;
 
+import android.databinding.BaseObservable;
+import android.databinding.Bindable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.max.weather.BR;
 
-public class CityBean {
+public class CityBean extends BaseObservable {
 
     @SerializedName("c6")
     @Expose
@@ -81,12 +85,14 @@ public class CityBean {
         this.c4 = c4;
     }
 
+    @Bindable
     public String getC3() {
         return c3;
     }
 
     public void setC3(String c3) {
         this.c3 = c3;
+        notifyPropertyChanged(BR.c3);
     }
 
     public String getC9() {
