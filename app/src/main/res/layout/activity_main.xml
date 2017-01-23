@@ -10,16 +10,20 @@
             type="com.max.weather.mvvm.weather.bean.CityBean" />
 
         <variable
-            name="nowWeather"
-            type="com.max.weather.mvvm.weather.bean.NowBean" />
-
-        <variable
             name="mainVM"
             type="com.max.weather.mvvm.weather.MainViewModel" />
 
         <variable
             name="WeatherIcon"
             type="String" />
+        
+        <variable
+            name="Temperature"
+            type="String"/>
+
+        <variable
+            name="Weather"
+            type="String"/>
     </data>
 
     <RelativeLayout
@@ -58,10 +62,10 @@
             android:layout_below="@id/icon_weather"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:text="@{nowWeather.weather}"
             android:textColor="@android:color/background_dark"
             android:textSize="@dimen/weather_text_size"
             android:textStyle="bold"
+            app:weather="@{Weather}"
             tools:text="晴" />
 
         <RelativeLayout
@@ -70,17 +74,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/info_weather"
             android:layout_marginTop="30dp"
-            android:paddingStart="25dp"
+            android:paddingStart="35dp"
             android:paddingEnd="0dp"
             android:layout_centerHorizontal="true">
-
-            <ImageView
-                android:id="@+id/icon_am_pm"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@{nowWeather}"
-                tools:src="@drawable/icon_post_meridiem"
-                tools:ignore="contentDescription"/>
 
             <TextView
                 android:id="@+id/info_temperature"
@@ -88,12 +84,20 @@
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/background_dark"
                 android:textSize="@dimen/temperature_text_size"
-                android:text="@{nowWeather.temperature}"
-                tools:text="26" />
+                tools:text="26"
+                app:temperature="@{Temperature}"/>
+
+            <!--<ImageView
+                android:id="@+id/icon_am_pm"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/icon_post_meridiem"
+                tools:src="@drawable/icon_post_meridiem"
+                tools:ignore="contentDescription"/>-->
 
             <ImageView
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:layout_marginStart="10dp"
                 android:layout_toEndOf="@id/info_temperature"
                 android:layout_alignTop="@id/info_temperature"

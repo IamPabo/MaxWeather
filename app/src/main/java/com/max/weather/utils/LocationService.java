@@ -1,6 +1,7 @@
 package com.max.weather.utils;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
@@ -13,6 +14,8 @@ import com.baidu.location.LocationClientOption.LocationMode;
  *
  */
 public class LocationService {
+	
+	private static final String TAG = "BaiDu";
 	private LocationClient client = null;
 	private LocationClientOption mOption,DIYoption;
 	private Object objLock = new Object();
@@ -42,6 +45,7 @@ public class LocationService {
 			client.registerLocationListener(listener);
 			isSuccess = true;
 		}
+		Log.d(TAG, "registerListener : success !!");
 		return  isSuccess;
 	}
 	
@@ -91,6 +95,7 @@ public class LocationService {
 		    mOption.SetIgnoreCacheException(false);//可选，默认false，设置是否收集CRASH信息，默认收集
 
 			mOption.setIsNeedAltitude(false);//可选，默认false，设置定位时是否需要海拔信息，默认不需要，除基础定位版本都可用
+			Log.d(TAG,"BaiDu Option is success !!");
 		}
 		return mOption;
 	}
@@ -99,6 +104,7 @@ public class LocationService {
 		synchronized (objLock) {
 			if(client != null && !client.isStarted()){
 				client.start();
+				Log.d(TAG,"Location is start !!!");
 			}
 		}
 	}
@@ -106,6 +112,7 @@ public class LocationService {
 		synchronized (objLock) {
 			if(client != null && client.isStarted()){
 				client.stop();
+				Log.d(TAG,"Location is stop !!!");
 			}
 		}
 	}
